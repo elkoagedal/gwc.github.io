@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+@font-face {
+  font-family:Bebas_Neue;
+  src: url(BebasNeue.otf);
+}
+@font-face {
+  font-family:Walkway;
+  src: url(walkwaybold.ttf);
+}
+
+ul#navigation {
+    height: 70px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    border-width: 1px 0;
+    text-align: center;
+    font-size: 22px;
+    font-family: 'Cham-WebFont', Arial, sans-serif;
+    background-color: #FFF;
+}
+ul#navigation li {
+    display: inline;
+    margin-right: .75em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+ul#navigation li.last {
+    margin-right: 0;
+}
+#font {
+  font-family: Walkway;
+}
+#color {
+  background-color:#EEF3F8;
+}
+#general{
+  font-family: Bebas_Neue;
+}
+
+i.small {font-size: 2em;}
+.moreInfo{
+  position: relative;
+}
+.relatedEvents{
+  width:100%;
+}
+
+.fafa-share {
+width: 20px;
+height: 20px;
+}
+.fafa-star-o {
+width: 20px;
+height: 20px;
+}
+.fafa-facebook-official {
+width: 20px;
+height: 20px;
+}
+</style>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>More Info</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+      <link href="css/business-frontpage.css" rel="stylesheet">
+
+          <!-- jQuery -->
+          <script src="js/jquery.js"></script>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+          <!-- Image Background Page Header -->
+          <!-- Note: The background image is set within the business-casual.css file. -->
+          <header id="business-header">
+              <div class="container" >
+                  <div class="row">
+                      <div class="col-lg-12">
+                        <center><h1 class="tagline" id="general">The Inkwells</h1></center>
+                          <center><button type="button" class="btn btn-primary btn-xs">Event</button>
+                                 <button type="button" class="btn btn-primary btn-xs" onclick = "imageToMap();" >Map</button></center>
+                    </div>
+                  </div>
+              </div>
+          </header>
+
+
+          <header class = "business-header-two" id="googleMap" style="width:500px;height:380px; display:none;">
+              <div class="container">
+                      <div class="row">
+                          <div class="col-lg-12">
+                        <center><h1 class="tagline" id="general">The Inkwells</h1></center>
+                            <center><button type="button" class="btn btn-primary btn-xs" onclick= mapToImage()>Event</button></center>
+                            <button type="button" class="btn btn-primary btn-xs">Map</button></center>
+                        </div>
+                      </div>
+                  </div>
+              </header>
+
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
+    <script>
+    var map;
+    $('#business-header').css({background: "url('file:///Users/girlswhocode/startbootstrap-business-frontpage-1.0.3/inkwells.jpg') center center/cover no-repeat scroll"});
+    function imageToMap(){
+      document.getElementById("googleMap").style.display = "block";
+      document.getElementById("business-header").style.display="none";
+      google.maps.event.trigger(map, 'resize');
+
+    }
+    function mapToImage (){
+      document.getElementById("business-header").style.display ="block";
+      document.getElementById("googleMap").style.display="none";
+    }
+    function initialize() {
+       var myLatlng = new google.maps.LatLng(38.0269121,-122.73588870000003);
+        var mapProp = {
+       center: myLatlng,
+       zoom: 15,
+       mapTypeId: google.maps.MapTypeId.ROADMAP
+      };
+      map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+      var marker=new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: 'Hello World!'
+    });
+
+    marker.setMap(map);
+  }
+    google.maps.event.addDomListener(window,'load', initialize);
+
+
+</script>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row" >
+            <div class="col-sm-8" id="color">
+                <h2 style="text-align: center;  font-family:Bebas_Neue;">What We Do</h2>
+                <p style="font-size:12px; text-align: center" id="font">The Inkwells are small, deep, dark pools beside Sir Francis Drake Boulevard in Lagunitas, West Marin. You walk down a crumbly path to the right of Inkwells Bridge to get to the beautiful, swimmable pools along Lagunitas Creek. There are two of them, one bigger than the other. There are rocks to jump off of and sun to bask in. It is the perfect place for a summer afternoon! </p>
+            <br>
+            </div>
+            <br>
+            <div class=moreInfo>
+            <div id="color">
+              <br>
+            	<center> <button type="button" class="btn btn-success">Going</button>
+ 				       <button type="button" class="btn btn-info">Maybe</button></center>
+               <br>
+               <center><i class="fa fa-share small"></i>
+                 <i class="fa fa-star-o small"></i>
+                 <i class="fa fa-facebook-official small"></i></center>
+                <center><h2 style = "font-family:Bebas_Neue;">More Info</h2></center>
+                <address>
+                    <center><strong style = "font-size: 16px" id="font">Dates and Locations</strong> </center>
+                    <center><p id="font"> Dates and Locations may vary.
+                    </p>
+                  <p>Visit the <a href = "http://www.yelp.com/biz/the-inkwells-lagunitas" id="font"> The Inkwells Website</a> for more info</p> </center> <br>
+                </address>
+
+            </div>
+        </div>
+
+
+        <!-- /.row -->
+        <div class ="relatedEvents" id="color">
+          <center><h4 style = "font-size:25px;font-family:Bebas_Neue;"> Related Events in Your Area
+          </h4></center>
+          <a href = "ferryplazafarm.html">
+            <img src = "ferryfarmersmarket.jpeg" alt= "Ferry Farmers Market"
+            style = "width:50px;height:50px;border:0px;margin-left=10px; margin-right=10px">
+          </a>
+            <a href = "LUnchtime Guided Meditation and Teaching.html">
+              <img src = "file:///Users/girlswhocode/startbootstrap-business-frontpage-1.0.3/lunchtimemeditation.jpg" alt = " Super Duper"
+              style = "width:50px;height:50px;border:0px; margin-left=10px; margin-right=10px">
+            </a>
+            <a href = "BenHowardConcert.html">
+              <img src = "file:///Users/girlswhocode/startbootstrap-business-frontpage-1.0.3/benhoward.jpg" alt ="First Friday"
+              style = "width:50px;height:50px;border:0px; margin-left=10px; margin-right=10px">
+            </a>
+            <a href = "theinkwells.html">
+              <img src = "file:///Users/girlswhocode/startbootstrap-business-frontpage-1.0.3/inkwells.jpg" alt ="Third Thursday: Gallery Crawl"
+              style = "width:50px;height:50px;border:0px; margin-left=10px; margin-right=10px">
+            </a>
+            <a href = "mirrormaze.html">
+              <img src = "file:///Users/girlswhocode/startbootstrap-business-frontpage-1.0.3/mirrormaze.jpg" alt ="Film Night in the Park"
+              style = "width:50px;height:50px;border:0px; margin-left=10px; margin-right=10px">
+            </a>
+            <a href = "http://www.uss-hornet.org/calendar/flashlight/">
+              <img src = "morningflashlight.jpeg" alt ="Morning Flashlight Tours"
+              style = "width:50px;height:50px;border:0px; margin-left=10px; margin-right=10px">
+            </a>
+            <a href = "http://sf.funcheap.com/free-wakeboarding-contra-costa-county-residents-woodland/">
+              <img src = "wakeboarding.jpeg" alt ="Free Wakeboarding in Woodland"
+              style = "width:50px;height:50px;border:0px; margin-left=10px; margin-right=10px">
+            </a>
+        </div>
+        <br>
+        <br>
+
+
+        <!-- /.row -->
+
+<br>
+<br>
+        <!-- Footer -->
+        <footer>
+          <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+      <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="row">
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <ul class="pagination">
+
+                        <li>
+                            <a href="tempBT.html"><span class="glyphicon glyphicon-bold" aria-hidden="true"></span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></a>
+                        </li>
+                        <li class="active">
+                            <a href="newbeteen.html"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                        </li>
+                        <li>
+                            <a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+          </div>
+
+
+
+      </div>
+
+  </nav>
+
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
